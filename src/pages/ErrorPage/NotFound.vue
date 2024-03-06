@@ -1,10 +1,24 @@
 <script setup>
 import notfound from "@/assets/img/404.png";
 import Breadcump from "@/components/Breadcump/index.vue";
+
+// const componentName = "Example Component";
+const componentData = [
+  {
+    pageName: "Home",
+    path: "/",
+    icon: "",
+  },
+  {
+    pageName: "Error",
+    path: "/",
+    icon: "",
+  },
+];
 </script>
 <template>
-  <Breadcump></Breadcump>
-  <div class="bg-white flex flex-col justify-center items-center h-screen">
+  <Breadcump title="Error" :data-array="componentData"></Breadcump>
+  <div class="bg-white flex flex-col items-center my-48">
     <div class="max-w-xs">
       <img :src="notfound" alt="Your Image" class="w-full h-auto" />
     </div>
