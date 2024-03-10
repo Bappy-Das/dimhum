@@ -154,81 +154,47 @@ const toggleVisibility = (index) => {
         :key="index"
         class="block w-full p-4 pt-4 pb-7 mb-5 bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300"
       >
-        <div class="flex justify-between items-center">
-          <div class="border border-gray-200 py-3 px-2">
-            <img :src="fltLogo" alt="" srcset="" />
-          </div>
-          <div>
-            <h1 class="text-lg font-semibold">Scoot</h1>
-            <p class="text-xs text-[#666363] font-semibold">TR978 | Airbus A320-212</p>
-          </div>
-          <div class="flex justify-center items-center gap-2">
-            <div>
-              <h1 class="text-xl font-bold text-dark">10:55</h1>
-              <p class="text-xs text-[#666363] font-semibold">HKG T2</p>
+        <div class="flex justify-between">
+          <div class="flex justify-between w-1/2">
+            <div class="flex gap-4 justify-between pt-2">
+              <h1 class="font-semibold text-2xl text-[#496cfe] pt-1">G102</h1>
+              <ul>
+                <li class="text-xl text-[#42435d]"><span class="text-3xl">&#x2022; </span>06:26</li>
+                <li class="text-xl text-[#42435d]"><span class="text-3xl">&#x2022; </span>12:29</li>
+              </ul>
             </div>
-            <div>
-              <img :src="timeShape" alt="" srcset="" />
-            </div>
-            <div>
-              <h1 class="text-xl font-bold text-dark">10:55</h1>
-              <p class="text-xs text-[#666363] font-semibold">HKG T2</p>
-            </div>
+            <h1 class="text-xs pt-5"><font-awesome-icon :icon="['far', 'clock']" class="w-3 h-3 me-2" />4h5m</h1>
           </div>
-          <div class="pt-1">
-            <h1 class="text-xs"><font-awesome-icon :icon="['far', 'clock']" class="w-3 h-3 me-2" />4h5m</h1>
-            <h1
-              class="text-md text-[#007bff] hover:text-[#4573a5] cursor-pointer pt-3 font-semibold transition-transform duration-300"
-              @click="toggleVisibility(index)"
-            >
-              Flight details <font-awesome-icon icon="angle-down" class="w-3 h-3 me-2" />
-            </h1>
-          </div>
-          <div>
-            <h1 class="text-2xl font-bold text-[#496cfe]">$610</h1>
-            <p>Roundtrip</p>
-          </div>
-          <button
-            type="button"
-            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mb-2"
-          >
-            Book
-          </button>
-        </div>
-        <div :class="[visibleIndex === index ? 'opacity-100 transition-all duration-500 show' : 'opacity-0 h-0 hidden']">
-          <div class="pt-5">
-            <hr class="border-[#7040ff]" />
-            <div class="flex items-center p-5">
-              <p class="text-xs text-[#666363] font-semibold">Scoot - TR979 | Airbus A320 | Economy</p>
-              <p class="text-xs ps-10"><font-awesome-icon :icon="['far', 'clock']" class="w-3 h-3 me-2" />4h5m</p>
-            </div>
-            <div class="ml-5">
-              <div
-                class="space-y-2 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:ml-[6.8rem] md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent"
+          <div class="w-1/2">
+            <div class="flex items-center justify-center gap-10">
+              <p class="text-md text-[#333]">2nd Class</p>
+              <h1>$ <span class="text-2xl font-bold text-[#007bff]">25.33</span></h1>
+              <button
+                type="button"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
               >
-                <div class="relative">
-                  <div class="md:flex items-center md:space-x-4">
-                    <div class="flex items-center space-x-4 md:space-x-2 md:space-x-reverse">
-                      <div
-                        class="flex items-center justify-center bg-dark shadow md:order-1 w-2 h-2 ml-[5px] bg-blue-900 rounded-full -start-1 ring-2 ring-white"
-                      ></div>
-                      <time class="text-slate-500">Nov 12 10:55</time>
-                    </div>
-                    <div class="text-slate-500 ml-14">HKG - Hong Kong Hong Kong International Airport T2</div>
-                  </div>
-                </div>
-                <div class="relative">
-                  <div class="md:flex items-center md:space-x-4">
-                    <div class="flex items-center space-x-4 md:space-x-2 md:space-x-reverse">
-                      <div
-                        class="flex items-center justify-center bg-dark shadow md:order-1 w-2 h-2 ml-[5px] bg-blue-900 rounded-full -start-1 ring-2 ring-white"
-                      ></div>
-                      <time class="text-slate-500">Nov 12 10:55</time>
-                    </div>
-                    <div class="text-slate-500 ml-10">SIN - Singapore Changi Airport T2</div>
-                  </div>
-                </div>
-              </div>
+                Book
+              </button>
+            </div>
+            <div class="flex items-center justify-center gap-10">
+              <p class="text-md text-[#333]">2nd Class</p>
+              <h1>$ <span class="text-2xl font-bold text-[#007bff]">25.33</span></h1>
+              <button
+                type="button"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
+              >
+                Book
+              </button>
+            </div>
+            <div class="flex items-center justify-center gap-10">
+              <p class="text-md text-[#333]">2nd Class</p>
+              <h1>$ <span class="text-2xl font-bold text-[#007bff]">25.33</span></h1>
+              <button
+                type="button"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
+              >
+                Book
+              </button>
             </div>
           </div>
         </div>

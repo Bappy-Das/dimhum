@@ -2,6 +2,15 @@
 import fltLogo from "@/assets/img/flt-logo-1.png";
 import timeShape from "@/assets/img/time-shape-line.png";
 import { ref } from "vue";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+const selectedDate = ref(null);
+const referenceData = ref(null);
+
+const updateReferenceData = (newDate) => {
+  // referenceData.value = newDate;
+  selectedDate.value = newDate;
+};
 
 const visibleIndex = ref(0);
 // @/assets/img/flt-logo-1.png
@@ -167,6 +176,53 @@ const toggleVisibility = (index) => {
       </div>
     </div>
     <div class="w-full md:w-3/4 lg:w-3/4">
+      <div class="block w-full p-4 pt-4 pb-7 mb-5 bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
+        <div class="flex justify-between gap-2">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mb-2"
+          >
+            Recommended
+          </button>
+          <!-- <div
+            class="text-gray-600 bg-white shadow focus:ring-0 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-lg px-8 py-4 text-center me-2 mb-2"
+          >
+            Price
+          </div> -->
+          <div>
+            <select
+              id="countries"
+              class="text-gray-900 border bg-white text-sm focus:ring-blue-500 focus:ring-0 focus:outline-none block w-full px-5 p-3 rounded-full select-with-arrow cursor-pointer"
+            >
+              <option selected>Choose a country</option>
+              <option value="US" class="text-gray-900">United States</option>
+              <option value="CA" class="text-gray-900">Canada</option>
+              <option value="FR" class="text-gray-900">France</option>
+              <option value="DE" class="text-gray-900">Germany</option>
+            </select>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Depart"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+            ></VueDatePicker>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Return"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+            ></VueDatePicker>
+          </div>
+        </div>
+      </div>
       <div
         v-for="(item, index) in 12"
         :key="index"
@@ -295,4 +351,27 @@ const toggleVisibility = (index) => {
     </div>
   </div>
 </template>
-<script setup></script>
+<style>
+.dp--tp-wrap {
+  display: none !important;
+}
+/* .dp__input {
+  border-radius: 10px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  color: rgb(3 7 18) !important;
+}
+
+.dp_pointer {
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+.dp_calendar_item {
+  padding: 2px !important;
+}
+.dp_calendar_row {
+  margin: 2px 0 !important;
+} */
+</style>
