@@ -1,4 +1,7 @@
 <script setup>
+import { ref } from "vue";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 import hotel from "@/assets/img/hotel-1.jpg";
 import hotelWifi from "@/assets/img/icon/hottel-cion-1.png";
 import hotelDumble from "@/assets/img/icon/hottel-cion-2.png";
@@ -9,9 +12,83 @@ import hotelWatter from "@/assets/img/icon/hottel-cion-6.png";
 import hotelMusic from "@/assets/img/icon/hottel-cion-7.png";
 import hotelcrolstve from "@/assets/img/icon/hottel-cion-8.png";
 import hotelDoller from "@/assets/img/icon/hottel-cion-9.png";
+const referenceData = ref(null);
+const perRoom = ref(null);
+const price = ref("price");
+const toggleDropdown = (event) => {
+  referenceData.value = !referenceData.value;
+};
+const selectPrice = (val) => {
+  price.value = val;
+  referenceData.value = false;
+};
+const guestPerRoom = (event) => {
+  perRoom.value = !perRoom.value;
+};
+const roomFnc = () => {
+  perRoom.value = false;
+};
 </script>
 <template>
-  <div class="flex flex-col md:flex-row lg:flex-row items-start justify-between gap-4 md:gap-8 lg:gap-8">
+  <div class="absolute top-[530px] left-2/4 transform -translate-x-2/4 -translate-y-2/4 w-6/12">
+    <div class="col-10 mx-auto mt-20">
+      <div class="bg-white w-full rounded-lg shadow-xl pb-5">
+        <div class="p-2 font-medium flex cursor-pointer" @click="guestPerRoom($event)">
+          <span>Guests per room</span>
+          <span class="p-1 pl-3">
+            <font-awesome-icon v-if="!perRoom" :icon="['fas', 'angle-up']" />
+            <font-awesome-icon v-else :icon="['fas', 'angle-down']" />
+          </span>
+        </div>
+        <ul :class="[perRoom ? 'show z-2 absolute mt-1 rounded bg-[#496cfe] text-white ring-1 ring-gray-300 w-[220px]' : 'hidden']">
+          <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="roomFnc('one')">Room One</li>
+          <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="roomFnc('two')">Room Two</li>
+        </ul>
+        <div class="flex justify-center gap-4 items-center h-full">
+          <div>
+            <input
+              type="text"
+              id="first_name"
+              class="bg-gray-50 border px-4 h-[53px] text-gray-900 text-lg rounded-full w-full p-2.5 focus:ring-0 focus:outline-none"
+              placeholder="Destination"
+              required
+            />
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Depart"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+              class="rounded-2xl"
+            ></VueDatePicker>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Return"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+            ></VueDatePicker>
+          </div>
+          <div>
+            <input
+              type="text"
+              id="first_name"
+              class="bg-gray-50 border px-4 h-[53px] text-gray-900 text-lg rounded-full w-full p-2.5 focus:ring-0 focus:outline-none"
+              placeholder="Keywords(Optional)"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col md:flex-row lg:flex-row items-start justify-between gap-4 md:gap-8 lg:gap-8 pt-5 md:pt-10 lg:pt-10">
     <div class="w-full md:w-1/4 lg:w-1/4">
       <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
         <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-xl">Star Rating</h1>
@@ -243,6 +320,59 @@ import hotelDoller from "@/assets/img/icon/hottel-cion-9.png";
       </div>
     </div>
     <div class="w-full md:w-3/4 lg:w-3/4">
+      <div class="block w-full p-4 pt-4 pb-7 mb-5 bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
+        <div class="flex justify-between gap-2">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full h-[53px] text-sm px-8 py-3 text-center me-2"
+          >
+            Recommended
+          </button>
+          <div>
+            <div id="select" class="relative w-[250px] px-5">
+              <button
+                id="toggleButton"
+                class="flex w-full h-[53px] items-center justify-between rounded-full bg-white p-2.5 ring-1 ring-gray-300"
+                @click="toggleDropdown($event)"
+              >
+                <div class="px-2 font-medium flex justify-between w-full">
+                  <span>{{ price }}</span>
+                  <span
+                    ><font-awesome-icon v-if="!referenceData" :icon="['fas', 'angle-up']" />
+                    <font-awesome-icon v-else :icon="['fas', 'angle-down']" />
+                  </span>
+                </div>
+              </button>
+              <ul :class="[referenceData ? 'show z-2 absolute mt-1 rounded bg-[#496cfe] text-white ring-1 ring-gray-300 w-[220px]' : 'hidden']">
+                <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="selectPrice(100)">100</li>
+                <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="selectPrice(200)">200</li>
+                <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="selectPrice(300)">300</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Depart"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+              class="rounded-2xl"
+            ></VueDatePicker>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Return"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+            ></VueDatePicker>
+          </div>
+        </div>
+      </div>
       <div
         v-for="(item, index) in 12"
         :key="index"

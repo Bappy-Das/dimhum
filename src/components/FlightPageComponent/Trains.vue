@@ -1,156 +1,241 @@
 <script setup>
 import fltLogo from "@/assets/img/flt-logo-1.png";
 import timeShape from "@/assets/img/time-shape-line.png";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
 import { ref } from "vue";
 
-const visibleIndex = ref(0);
-// @/assets/img/flt-logo-1.png
-const toggleVisibility = (index) => {
-  // visibleIndex.value = visibleIndex.value === index ? null : index;
-  visibleIndex.value = visibleIndex.value === index ? null : index;
+const referenceData = ref(null);
+const price = ref("price");
+const fromRes = ref(null);
+const from = ref("From");
+const toRes = ref(null);
+const to = ref("To");
+const toggleDropdown = (event) => {
+  referenceData.value = !referenceData.value;
+};
+const selectPrice = (val) => {
+  price.value = val;
+  referenceData.value = false;
+};
+const toggleFrom = (event) => {
+  fromRes.value = !fromRes.value;
+};
+const setFrom = (val) => {
+  from.value = val;
+  fromRes.value = false;
+};
+const toggleTo = (event) => {
+  toRes.value = !toRes.value;
+};
+const setTo = (val) => {
+  to.value = val;
+  toRes.value = false;
 };
 </script>
 <template>
+  <div class="absolute top-[530px] left-2/4 transform -translate-x-2/4 -translate-y-2/4 w-6/12">
+    <div class="col-10 mx-auto mt-20">
+      <div class="bg-white w-full rounded-lg h-[90px] shadow-xl">
+        <div class="flex justify-center items-center gap-2 h-full">
+          <div id="select" class="relative w-[250px] px-5">
+            <button
+              id="toggleButton"
+              class="flex w-full h-[53px] items-center justify-between rounded-full bg-white p-2.5 ring-1 ring-gray-300"
+              @click="toggleFrom($event)"
+            >
+              <div class="px-2 font-medium flex justify-between w-full">
+                <span>{{ from }}</span>
+                <span
+                  ><font-awesome-icon v-if="!fromRes" :icon="['fas', 'angle-up']" />
+                  <font-awesome-icon v-else :icon="['fas', 'angle-down']" />
+                </span>
+              </div>
+            </button>
+            <ul :class="[fromRes ? 'show z-2 absolute mt-1 rounded bg-[#496cfe] text-white ring-1 ring-gray-300 w-[220px]' : 'hidden']">
+              <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="setFrom('Dhaka')">Dhaka</li>
+              <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="setFrom('Sylhet')">Sylhet</li>
+              <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="setFrom('Cumilla')">Cumilla</li>
+            </ul>
+          </div>
+          <div id="select" class="relative w-[250px] px-5">
+            <button
+              id="toggleButton"
+              class="flex w-full h-[53px] items-center justify-between rounded-full bg-white p-2.5 ring-1 ring-gray-300"
+              @click="toggleTo($event)"
+            >
+              <div class="px-2 font-medium flex justify-between w-full">
+                <span>{{ to }}</span>
+                <span
+                  ><font-awesome-icon v-if="!toRes" :icon="['fas', 'angle-up']" />
+                  <font-awesome-icon v-else :icon="['fas', 'angle-down']" />
+                </span>
+              </div>
+            </button>
+            <ul :class="[toRes ? 'show z-2 absolute mt-1 rounded bg-[#496cfe] text-white ring-1 ring-gray-300 w-[220px]' : 'hidden']">
+              <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="setTo('Dhaka')">Dhaka</li>
+              <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="setTo('Sylhet')">Sylhet</li>
+              <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="setTo('Cumilla')">Cumilla</li>
+            </ul>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Depart"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+              class="rounded-2xl"
+            ></VueDatePicker>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Return"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+            ></VueDatePicker>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="flex flex-col md:flex-row lg:flex-row items-start justify-between gap-4 md:gap-8 lg:gap-8">
     <div class="w-full md:w-1/4 lg:w-1/4">
       <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
-        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Stops</h1>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Nonstop <span>(63)</span> </label>
+        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Filter by Price</h1>
+        <div class="flex flex-col items-center justify-between p-1.5">
+          <div class="w-full">
+            <input id="dual-range" type="range" value="10" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-thumb-1" />
+            <!-- <input id="dual-range" type="range" value="75" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer range-thumb-2" /> -->
           </div>
-          <p>$711</p>
         </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> 1 Stop <span>(34)</span> </label>
-          </div>
-          <p>$711</p>
+        <div class="flex justify-between p-1.5">
+          <p>Price</p>
+          <p class="text-[#7040ff]">$160-$550</p>
+        </div>
+        <div class="flex items-center justify-center mt-7">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-sm text-xl px-8 py-3 text-center"
+          >
+            Filter
+          </button>
         </div>
       </div>
       <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
-        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Airlines included</h1>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Delta <span>(16)</span></label>
-          </div>
-          <p>$711</p>
+        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-xl">Departure Time</h1>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-gray-900 text-md"> 00:00-06:00 </label>
         </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Aer Lingus <span>(16)</span></label>
-          </div>
-          <p>$711</p>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-md text-gray-900"> 06:00-12:00 </label>
         </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Iberia <span>(16)</span></label>
-          </div>
-          <p>$711</p>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-md text-gray-900"> 12:00-18:00 </label>
         </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> British Airways <span>(16)</span></label>
-          </div>
-          <p>$711</p>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-md text-gray-900"> 18:00-24:00 </label>
         </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> KLM <span>(16)</span></label>
-          </div>
-          <p>$711</p>
-        </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Finnair <span>(16)</span></label>
-          </div>
-          <p>$711</p>
-        </div>
-        <router-link :to="{ path: '/' }">
-          <p class="p-1 text-[#7040ff] underline">Show more</p>
-        </router-link>
       </div>
       <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
-        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Departure time</h1>
+        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-xl">Arrival Time</h1>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-gray-900 text-md"> 00:00-06:00 </label>
+        </div>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-md text-gray-900"> 06:00-12:00 </label>
+        </div>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-md text-gray-900"> 12:00-18:00 </label>
+        </div>
+        <div class="flex items-center py-1">
+          <input id="default-checkbox" class="" type="checkbox" value="" />
+          <label for="default-checkbox" class="ms-2 text-md text-gray-900"> 18:00-24:00 </label>
+        </div>
+      </div>
+      <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
+        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Arrival Station</h1>
         <div class="p-1.5">
           <div class="flex items-center">
             <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Morning <span>(5am - 11am)</span></label>
+            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Beijing South</label>
           </div>
         </div>
         <div class="p-1.5">
           <div class="flex items-center">
             <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Afternoon <span>(12pm - 5:pm)</span></label>
+            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Beijing</label>
           </div>
-        </div>
-        <div class="p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> Evening <span>(6pm - 11pm)</span></label>
-          </div>
-        </div>
-      </div>
-      <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
-        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Departure airports</h1>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> LHR (London) (82)</label>
-          </div>
-          <p>$711</p>
-        </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> LGW (London) (10)</label>
-          </div>
-          <p>$711</p>
-        </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> LCY (London) (5)</label>
-          </div>
-          <p>$711</p>
-        </div>
-      </div>
-      <div class="block w-full mb-5 p-[30px] bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
-        <h1 class="pb-[25px] mb-[24px] font-bold border-b-2 text-lg">Arrival airports</h1>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> JFK (New York) (70)</label>
-          </div>
-          <p>$711</p>
-        </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> EWR (Newark) (24)</label>
-          </div>
-          <p>$711</p>
-        </div>
-        <div class="flex items-center justify-between p-1.5">
-          <div class="flex items-center">
-            <input id="default-checkbox" class="" type="checkbox" value="" />
-            <label for="default-checkbox" class="ms-2 text-sm text-gray-900"> LGA (New York) (3)</label>
-          </div>
-          <p>$711</p>
         </div>
       </div>
     </div>
     <div class="w-full md:w-3/4 lg:w-3/4">
+      <div class="block w-full p-4 pt-4 pb-7 mb-5 bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300">
+        <div class="flex justify-between gap-2">
+          <button
+            type="button"
+            class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full h-[53px] text-sm px-8 py-3 text-center me-2"
+          >
+            Recommended
+          </button>
+          <div>
+            <div id="select" class="relative w-[250px] px-5">
+              <button
+                id="toggleButton"
+                class="flex w-full h-[53px] items-center justify-between rounded-full bg-white p-2.5 ring-1 ring-gray-300"
+                @click="toggleDropdown($event)"
+              >
+                <div class="px-2 font-medium flex justify-between w-full">
+                  <span>{{ price }}</span>
+                  <span
+                    ><font-awesome-icon v-if="!referenceData" :icon="['fas', 'angle-up']" />
+                    <font-awesome-icon v-else :icon="['fas', 'angle-down']" />
+                  </span>
+                </div>
+              </button>
+              <ul :class="[referenceData ? 'show z-2 absolute mt-1 rounded bg-[#496cfe] text-white ring-1 ring-gray-300 w-[220px]' : 'hidden']">
+                <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="selectPrice(100)">100</li>
+                <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="selectPrice(200)">200</li>
+                <li class="cursor-pointer select-none p-2 text-bold hover:bg-gray-200 hover:text-[#496cfe]" @click="selectPrice(300)">300</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Depart"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+              class="rounded-2xl"
+            ></VueDatePicker>
+          </div>
+          <div>
+            <VueDatePicker
+              placeholder="Return"
+              v-model="selectedDate"
+              @input="updateReferenceData"
+              :type="date"
+              :showTimePicker="false"
+              auto-apply
+            ></VueDatePicker>
+          </div>
+        </div>
+      </div>
       <div
-        v-for="(item, index) in 12"
+        v-for="(item, index) in 6"
         :key="index"
         class="block w-full p-4 pt-4 pb-7 mb-5 bg-white border border-gray-200 rounded-sm hover:border-[#7040ff] transition duration-300"
       >
