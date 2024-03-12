@@ -3,44 +3,27 @@ import FooterBottom from "@/components/FooterBottom/index.vue";
 import footerBg from "@/assets/img/footerbg.png";
 </script>
 <template>
-  <footer class="bg-white mt-16 bg-cover bg-center min-h-auto" :style="{ backgroundImage: `url(${footerBg})` }">
-    <div class="h-[500px] flex flex-col justify-center items-center">
+  <footer class="bg-white bg-cover bg-center h-full" :style="{ backgroundImage: `url(${footerBg})` }">
+    <div class="h-[700px] flex flex-col justify-center items-center pt-[130px]">
       <h1 class="uppercase font-bold text-lg text-white">NEWSLETTER</h1>
       <h1 class="text-7xl font-bold mb-5 mt-2 text-white">Get The Latest News</h1>
-      <p class="text-white text-center md:mx-[630px] lg-[630px]">
-        Get the latest travel inspirations and deals from Emigrar semimonthly with your email. You can unsubscribe at any time. Your privacy &
-        personal information will be treated.
+      <p class="text-white text-center pb-10">
+        Get the latest travel inspirations and deals from Emigrar semimonthly with your email. You can <br />
+        unsubscribe at any time. Your privacy & personal information will be treated.
       </p>
-      <div class="w-full md:w-4/12 lg:w-4/12 mb-10">
+      <div class="w-full md:w-5/12 lg:w-5/12 mb-10">
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
         <div class="relative">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-            <svg
-              class="w-4 h-4 text-gray-500 dark:text-gray-400"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-              />
-            </svg>
-          </div>
           <input
             type="search"
             id="default-search"
-            class="block w-full p-5 ps-10 text-sm text-gray-100 border border-gray-300 rounded-full bg-transparent focus:ring-blue-500 focus:border-blue-500"
+            class="block w-full p-5 ps-10 text-lg text-white border border-gray-300 rounded-full bg-transparent focus:ring-blue-500 focus:border-blue-500"
             placeholder="Enter your email address"
             required
           />
           <button
             type="submit"
-            class="text-white absolute end-1 bottom-[3px] bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-lg px-8 py-3.5"
+            class="text-white absolute end-1 bottom-1 bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-lg px-8 py-4"
           >
             Subscribe Now
           </button>

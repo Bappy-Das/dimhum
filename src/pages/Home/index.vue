@@ -1,10 +1,10 @@
 <script setup>
-import Footer from "@/components/Footer/index.vue";
+import Partners from "../../components/Partners/index.vue";
 </script>
 
 <template>
   <h1 class="text-3xl font-bold underline">Dimhum</h1>
-  <Footer></Footer>
+  <Partners></Partners>
 </template>
 
 <style scoped></style>
