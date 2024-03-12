@@ -256,7 +256,7 @@ const setTo = (val) => {
               <h1>$ <span class="text-2xl font-bold text-[#007bff]">25.33</span></h1>
               <button
                 type="button"
-                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
               >
                 Book
               </button>
@@ -266,7 +266,7 @@ const setTo = (val) => {
               <h1>$ <span class="text-2xl font-bold text-[#007bff]">25.33</span></h1>
               <button
                 type="button"
-                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
               >
                 Book
               </button>
@@ -276,7 +276,7 @@ const setTo = (val) => {
               <h1>$ <span class="text-2xl font-bold text-[#007bff]">25.33</span></h1>
               <button
                 type="button"
-                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
+                class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-full text-sm px-8 py-3 text-center me-2 mt-3"
               >
                 Book
               </button>
@@ -328,4 +328,4 @@ const setTo = (val) => {
     </div>
   </div>
 </template>
-<script setup></script>
+<style scoped></style>

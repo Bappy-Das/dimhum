@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    font-family: 'Lato', sans-serif;
+    line-height: 26px;
+    overflow-x: hidden;
+    vertical-align: baseline;
+    color: #3d446f;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
