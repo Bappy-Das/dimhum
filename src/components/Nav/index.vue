@@ -1,11 +1,16 @@
-<script setup></script>
+<script setup>
+import Topheader from "@/components/TopHeader/index.vue";
+import logo from "@/assets/logo.jpeg";
+</script>
 
 <template>
-  <nav class="border-gray-200 absolute w-full p-3 bg-slate-600">
+  <nav class="border-gray-200 absolute w-full p-3 bg-transparent">
+    <Topheader></Topheader>
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap">Logo</span>
-      </a>
+      <div class="w-52">
+        <img :src="logo" alt="" srcset="" />
+        <!-- <span class="self-center text-2xl font-semibold whitespace-nowrap">Logo</span> -->
+      </div>
       <button
         data-collapse-toggle="navbar-default"
         type="button"
@@ -20,32 +25,35 @@
       </button>
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul
-          class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
+          class="font-normal flex flex-col items-center p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0"
         >
           <li
-            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-blue-300 md:hover:text-blue-300 md:p-0"
+            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-[#007bff] md:hover:text-blue-300 md:p-0"
           >
-            About
+            Home
           </li>
           <li
-            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-blue-300 md:hover:text-blue-300 md:p-0"
+            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-[#007bff] md:hover:text-blue-300 md:p-0"
           >
-            About
+            Trip Package
           </li>
           <li
-            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-blue-300 md:hover:text-blue-300 md:p-0"
+            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-[#007bff] md:hover:text-blue-300 md:p-0"
           >
-            About
+            Service
           </li>
           <li
-            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-blue-300 md:hover:text-blue-300 md:p-0"
+            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text--[#007bff] md:hover:text-blue-300 md:p-0"
           >
-            About
+            Blog
           </li>
-          <li
-            class="block cursor-pointer text-lg py-2 px-3 text-gray-200 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 hover:text-blue-300 md:hover:text-blue-300 md:p-0"
-          >
-            About
+          <li>
+            <button
+              type="button"
+              class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-xl px-8 py-4 uppercase text-center"
+            >
+              Contact Us
+            </button>
           </li>
         </ul>
       </div>

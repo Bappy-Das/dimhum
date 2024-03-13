@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 26px;
     overflow-x: hidden;
     vertical-align: baseline;
