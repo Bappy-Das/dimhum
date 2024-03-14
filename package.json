@@ -17,6 +17,7 @@
     "@vuepic/vue-datepicker": "^8.2.0",
     "aos": "^2.3.4",
     "vue": "^3.4.19",
+    "vue-countup-v3": "^1.4.1",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {

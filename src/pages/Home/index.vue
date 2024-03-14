@@ -13,7 +13,7 @@ import FlightDealArea from "@/components/FlightDealArea/index.vue";
   <Banner></Banner>
   <CountArea></CountArea>
   <EmigrServicesArea></EmigrServicesArea>
-  <DealArea></DealArea>
+  <DealArea class="bg-black text-white py-20 font-bold text-6xl mb-32 rounded-xl text-center"></DealArea>
   <WorkArea></WorkArea>
   <PortfolioArea></PortfolioArea>
   <FlightDealArea></FlightDealArea>

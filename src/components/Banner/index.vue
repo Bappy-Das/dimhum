@@ -22,7 +22,7 @@ const activeBtn = (data) => {
             Explore <br />
             The World!
           </h1>
-          <p class="w-full font-normal text-[20px] md:w-3/5 lg:3/5 md:mb-14 lg:mb-16" data-aos="fade-down" data-aos-duration="3000">
+          <p class="w-full font-normal text-[20px] md:w-3/5 lg:3/5 md:mb-14 lg:mb-16" data-aos="zoom-in" data-aos-duration="3000">
             You can create a Custom Trip.Search Our Lowest Fares to Your Favorite Destinations.Find a better way to travel
           </p>
           <div class="" data-aos="fade-up" data-aos-duration="2000" data-aos-delay="300" data-aos-offset="0">

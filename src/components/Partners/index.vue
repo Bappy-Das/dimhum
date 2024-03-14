@@ -11,7 +11,7 @@ import brand4 from "@/assets/img/brands/brands-4.png";
         <div class="flex flex-col justify-center items-center">
           <h1 class="text-xl font-normal uppercase text-[#496cfe]" data-aos="fade-up" data-aos-duration="1000">TAKE A LOOK AT OUR</h1>
           <h1 class="text-7xl font-bold mb-5 mt-2 text-black" data-aos="fade-up" data-aos-duration="1000">Trusted Partners</h1>
-          <p class="text-center">
+          <p class="text-center" data-aos="fade-up" data-aos-duration="1000">
             We are committed to being the best partner.Emigrar believes in being your trusted partner and earning that trust <br />
             through confidence and performance in service and support.
           </p>

@@ -11,14 +11,14 @@ import s_icon_3 from "@/assets/service-icon/s_icon_3.png";
         <div class="flex flex-col justify-center items-center">
           <h1 class="text-xl font-normal uppercase text-[#496cfe]" data-aos="fade-up" data-aos-duration="1000">WHY CHOOSE OUR TRAVEL AGENCY?</h1>
           <h1 class="text-7xl font-bold mb-5 mt-2 text-black" data-aos="fade-up" data-aos-duration="1000">Our Core Values</h1>
-          <p class="text-center">
+          <p class="text-center" data-aos="fade-up" data-aos-duration="1000">
             Our thoughtful team of knowledgeable experts are here to take care of every need, from the second you <br />
             contact us to when you return
           </p>
         </div>
         <div class="grid grid-cols-3 md:grid-cols-1 lg:grid-cols-3 md:gap-x-8 lg:gap-x-8 px-4 py-8 lg:py-8">
           <div
-            class="bg-[#fff] shadow-lg hover:shadow-2xl transition-all duration-200 flex flex-col justify-center items-center h-[350px] mb-9 px-6 rounded-3xl"
+            class="bg-[#fff] shadow-lg hover:shadow-2xl transition-shadow duration-700 ease-in-out flex flex-col justify-center items-center h-[350px] mb-9 px-6 rounded-3xl"
             data-aos="fade-up"
             data-aos-duration="1000"
             data-aos-delay="300"
@@ -33,7 +33,7 @@ import s_icon_3 from "@/assets/service-icon/s_icon_3.png";
             </div>
           </div>
           <div
-            class="bg-[#fff] shadow-lg hover:shadow-2xl transition-all duration-200 flex flex-col justify-center items-center h-[350px] mb-9 px-6 rounded-3xl"
+            class="bg-[#fff] shadow-lg hover:shadow-2xl transition-shadow duration-700 ease-in-out flex flex-col justify-center items-center h-[350px] mb-9 px-6 rounded-3xl"
             data-aos="fade-up"
             data-aos-duration="1500"
             data-aos-delay="300"
@@ -48,7 +48,7 @@ import s_icon_3 from "@/assets/service-icon/s_icon_3.png";
             </div>
           </div>
           <div
-            class="bg-[#fff] shadow-lg hover:shadow-2xl transition-all duration-200 flex flex-col justify-center items-center h-[350px] mb-9 px-6 rounded-3xl"
+            class="bg-[#fff] shadow-lg hover:shadow-2xl transition-shadow duration-700 ease-in-out flex flex-col justify-center items-center h-[350px] mb-9 px-6 rounded-3xl"
             data-aos="fade-up"
             data-aos-duration="2000"
             data-aos-delay="300"
