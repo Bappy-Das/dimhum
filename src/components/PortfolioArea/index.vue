@@ -8,7 +8,7 @@ import portfolio5 from "@/assets/portfolio/port-5.jpg";
 import portfolio6 from "@/assets/portfolio/port-6.jpg";
 </script>
 <template>
-  <div class="bg-white bg-cover bg-center h-[1650px] flex felx-col items-center justify-center" :style="{ backgroundImage: `url(${portfolioBG})` }">
+  <div class="bg-white bg-cover bg-center py-60 flex felx-col items-center justify-center" :style="{ backgroundImage: `url(${portfolioBG})` }">
     <div class="max-w-screen-xl w-full mx-auto py-2">
       <div>
         <div class="flex flex-col justify-center items-center">
@@ -64,10 +64,13 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
           </div>
         </div>
       </div>
-      <div class="grid grid-cols-3 md:grid-cols-1 lg:grid-cols-3 md:gap-8 lg:gap-8 px-4 py-8 lg:py-8">
+      <!-- data-aos="fade-up" data-aos-duration="2000" -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 md:gap-8 lg:gap-8 px-4 py-8 lg:py-8" data-aos="fade-up" data-aos-duration="2000">
         <div
           class="relative border-[#ffffff66] border flex flex-col justify-end items-center h-[350px] px-6 rounded-xl bg-white bg-cover bg-center opacity-80 hover:opacity-100 transition-all duration-300 felx-col"
           :style="{ backgroundImage: `url(${portfolio1})` }"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
         >
           <div
             class="absolute top-0 left-0 h-[80px] w-[80px] bg-gradient-to-r from-[#ffaa57] to-[#fe5c76] flex flex-col justify-center items-center rounded-tl-lg rounded-br-lg"
@@ -93,6 +96,8 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
         <div
           class="relative border-[#ffffff66] border flex flex-col justify-end items-center h-[350px] px-6 rounded-xl bg-white bg-cover bg-center opacity-80 hover:opacity-100 transition-all duration-300 felx-col"
           :style="{ backgroundImage: `url(${portfolio2})` }"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
         >
           <div
             class="absolute top-0 left-0 h-[80px] w-[80px] bg-gradient-to-r from-[#ffaa57] to-[#fe5c76] flex flex-col justify-center items-center rounded-tl-lg rounded-br-lg"
@@ -118,6 +123,8 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
         <div
           class="relative border-[#ffffff66] border flex flex-col justify-end items-center h-[350px] px-6 rounded-xl bg-white bg-cover bg-center opacity-80 hover:opacity-100 transition-all duration-300 felx-col"
           :style="{ backgroundImage: `url(${portfolio3})` }"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
         >
           <div
             class="absolute top-0 left-0 h-[80px] w-[80px] bg-gradient-to-r from-[#ffaa57] to-[#fe5c76] flex flex-col justify-center items-center rounded-tl-lg rounded-br-lg"
@@ -143,6 +150,8 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
         <div
           class="relative border-[#ffffff66] border flex flex-col justify-end items-center h-[350px] px-6 rounded-xl bg-white bg-cover bg-center opacity-80 hover:opacity-100 transition-all duration-300 felx-col"
           :style="{ backgroundImage: `url(${portfolio4})` }"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
         >
           <div
             class="absolute top-0 left-0 h-[80px] w-[80px] bg-gradient-to-r from-[#ffaa57] to-[#fe5c76] flex flex-col justify-center items-center rounded-tl-lg rounded-br-lg"
@@ -168,6 +177,8 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
         <div
           class="relative border-[#ffffff66] border flex flex-col justify-end items-center h-[350px] px-6 rounded-xl bg-white bg-cover bg-center opacity-80 hover:opacity-100 transition-all duration-300 felx-col"
           :style="{ backgroundImage: `url(${portfolio5})` }"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
         >
           <div
             class="absolute top-0 left-0 h-[80px] w-[80px] bg-gradient-to-r from-[#ffaa57] to-[#fe5c76] flex flex-col justify-center items-center rounded-tl-lg rounded-br-lg"
@@ -193,6 +204,8 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
         <div
           class="relative border-[#ffffff66] border flex flex-col justify-end items-center h-[350px] px-6 rounded-xl bg-white bg-cover bg-center opacity-80 hover:opacity-100 transition-all duration-300 felx-col"
           :style="{ backgroundImage: `url(${portfolio6})` }"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
         >
           <div
             class="absolute top-0 left-0 h-[80px] w-[80px] bg-gradient-to-r from-[#ffaa57] to-[#fe5c76] flex flex-col justify-center items-center rounded-tl-lg rounded-br-lg"
@@ -215,6 +228,14 @@ import portfolio6 from "@/assets/portfolio/port-6.jpg";
             </div>
           </div>
         </div>
+      </div>
+      <div class="flex justify-center items-center mt-10">
+        <button
+          type="button"
+          class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-0 focus:outline-none focus:ring-blue-300 font-medium rounded-xl text-lg px-5 py-2.5 uppercase text-center"
+        >
+          Browse More
+        </button>
       </div>
     </div>
   </div>
