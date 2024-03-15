@@ -14,7 +14,7 @@ import cat1 from "@/assets/cat_1.jpg";
   <div class="pb-60 flex felx-col items-center justify-center relative">
     <div class="absolute z-1 top-[300px] left-0 w-[827px] h-[836px] bg-white bg-cover bg-center" :style="{ backgroundImage: `url(${shape1})` }"></div>
     <div
-      class="absolute z-2 top-[350px] right-[-40px] w-[750px] h-[750px] bg-white bg-cover bg-center"
+      class="absolute z-2 top-[350px] right-[-40px] md:right-[30px] w-[750px] h-[750px] md:w-[500px] md:h-[500px] bg-white bg-cover bg-center"
       :style="{ backgroundImage: `url(${shape2})` }"
     ></div>
     <div class="max-w-screen-xl w-full mx-auto py-2">
