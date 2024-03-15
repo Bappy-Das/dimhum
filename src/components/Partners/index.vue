@@ -5,7 +5,7 @@ import brand3 from "@/assets/img/brands/brands-3.png";
 import brand4 from "@/assets/img/brands/brands-4.png";
 </script>
 <template>
-  <div class="bg-white mb-9 bg-cover bg-center min-h-auto">
+  <div class="bg-white pt-80 pb-40 bg-cover bg-center min-h-auto">
     <div class="mx-auto w-full max-w-screen-xl">
       <div class="grid grid-cols-1 px-4 py-8 lg:py-8">
         <div class="flex flex-col justify-center items-center">

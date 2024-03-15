@@ -14,7 +14,7 @@ import cat1 from "@/assets/cat_1.jpg";
   <div class="pb-60 flex felx-col items-center justify-center relative">
     <div class="absolute z-1 top-[300px] left-0 w-[827px] h-[836px] bg-white bg-cover bg-center" :style="{ backgroundImage: `url(${shape1})` }"></div>
     <div
-      class="absolute z-2 top-[350px] right-[-40px] md:right-[30px] w-[750px] h-[750px] md:w-[500px] md:h-[500px] bg-white bg-cover bg-center"
+      class="absolute z-2 top-[350px] right-[-40px] md:right-[30px] w-[100px] h-[100px] lg:w-[750px] lg:h-[750px] md:w-[500px] md:h-[500px] bg-white bg-cover bg-center"
       :style="{ backgroundImage: `url(${shape2})` }"
     ></div>
     <div class="max-w-screen-xl w-full mx-auto py-2">
@@ -133,12 +133,13 @@ import cat1 from "@/assets/cat_1.jpg";
         </div>
       </div>
       <div
-        class="bg-cover bg-center h-full rounded-xl pt-30"
+        class="bg-cover bg-center rounded-xl my-auto pt-30 h-[200px] flex justify-center items-center"
         data-aos="fade-up"
         data-aos-duration="1000"
         :style="{ backgroundImage: `url(${cat1})` }"
       >
-        <div class="flex justify-between items-center p-12">
+        <!-- <div>fsvdb</div> -->
+        <div class="flex justify-between items-center p-14 w-full">
           <div class="text-white">
             <h1 class="text-lg"><span class="font-bold text-2xl">Not sure where to go next?</span> We're here to inspire you</h1>
             <p class="text-xs font-normal pt-2">Send us an email and someone on our team will be in touch with you!</p>
