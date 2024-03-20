@@ -10,8 +10,10 @@ const props = defineProps({
 <template>
   <div class="bg-cover md:p-14 lg:p-14 bg-center min-h-auto max-w-auto" :style="{ backgroundImage: `url(${breadcumpImg})` }">
     <!-- <div class="container md:mx-[10rem] h-[450px]"> -->
-    <div class="max-w-screen-xl h-[450px] flex flex-wrap items-center justify-between mx-auto p-4 md:p-1 lg:p-0">
-      <div class="pt-48">
+    <div
+      class="max-w-screen-xl h-[620px] md:h-[450px] lg:h-[450px] flex flex-wrap md:items-center lg:items-center justify-between mx-auto p-4 md:p-1 lg:p-0"
+    >
+      <div class="pt-36 md:pt-48 lg:pt-48">
         <div class="font-bold pb-4 md:pb-7 lg:10 text-white text-3xl md:text-5xl lg:text-7xl w-full">{{ title }}</div>
         <nav class="flex" aria-label="Breadcrumb">
           <ol class="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">

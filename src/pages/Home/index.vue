@@ -17,7 +17,7 @@ import TestimonialArea from "@/components/TestimonialsArea/index.vue";
   <Banner></Banner>
   <CountArea></CountArea>
   <EmigrServicesArea></EmigrServicesArea>
-  <DealArea class="bg-black text-white py-20 font-bold text-6xl mb-32 rounded-xl text-center"></DealArea>
+  <DealArea></DealArea>
   <WorkArea></WorkArea>
   <PortfolioArea></PortfolioArea>
   <FlightDealArea></FlightDealArea>

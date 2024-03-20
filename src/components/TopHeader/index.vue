@@ -13,7 +13,7 @@ window.addEventListener("scroll", onChangeHeader);
 <template>
   <!-- <div :class="[changeHeader ? 'hidden' : 'show max-w-screen-xl flex flex-wrap items-center justify-between mx-auto py-2 px-4']"> -->
   <div
-    :class="[changeHeader ? 'hidden' : 'block']"
+    :class="[changeHeader ? 'hidden' : 'hidden md:block lg:block']"
     :style="{ height: changeHeader ? '50px' : 'auto', transition: 'height 0.3s' }"
     class="transition-transform duration-300"
   >
